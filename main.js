@@ -5,7 +5,7 @@
 // const nomeArquivoImagem = "product-1.jpg";
 
 
-
+import { inicializarCarrinho } from "./src/menuCarrinho";
 const catalogo  = [
     {
 
@@ -91,3 +91,5 @@ for (const produtoCatalogo  of catalogo){
     </div>`;
     document.getElementById("container-produto").innerHTML += cartaoProduto;
 }
+
+inicializarCarrinho();
