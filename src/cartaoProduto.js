@@ -1,10 +1,9 @@
-import { adicionarAoCarrinho } from "./menuCarrinho";
+
 import { catalogo } from "./utilidades";
 export function renderizarCatalogo(){
-
-
-for (const produtoCatalogo  of catalogo){
-    const cartaoProduto = `<div  class= 'border-solid  w-48 m-2 flex flex-col p-2 justify-between shadow-xl shadow-slate-500 rounded-lg group ' id ='card-produto-${produtoCatalogo.id}'>  
+  
+for (const produtoCatalogo  of catalogo) {
+    const cartaoProduto =  `<div  class= 'border-solid  w-48 m-2 flex flex-col p-2 justify-between shadow-xl shadow-slate-500 rounded-lg group ' id ='card-produto-${produtoCatalogo.id}'>  
     <img
      src= "./assets/img/${produtoCatalogo.imagem} " 
     alt ="Produto 1 do produtos esportivos."
@@ -17,7 +16,7 @@ for (const produtoCatalogo  of catalogo){
       ><i class="fa-solid fa-cart-plus" ></i></button>
     </div>`;
     document.getElementById("container-produto").innerHTML += cartaoProduto;
-    document.getElementById.getElementById(`adicionar-${produtoCatalogo.id}`);
+ 
 }
     
 }
