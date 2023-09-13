@@ -3,7 +3,7 @@ export const catalogo  = [
     {
   
       
-          id: 1,
+          id: "1",
           
           nome: 'Chuteira Branca',
           marca: 'Nike', 
@@ -11,7 +11,7 @@ export const catalogo  = [
           imagem: "product-1.jpg",
            feminino: false,
            },
-           { id: 2, 
+           { id: "2", 
           marca: 'Topper',
            nome: 'Chuteira Preta',
            preco: 85, 
@@ -19,7 +19,7 @@ export const catalogo  = [
            feminino: true,
            },
            {
-           id: 3, 
+           id: "3", 
           marca: 'Adidas', 
           nome: 'Chuteira Laranja',
            preco: 60, 
@@ -27,7 +27,7 @@ export const catalogo  = [
            feminino: false,
            },
            { 
-          id: 4,
+          id: "4",
            marca: 'Nike',
            nome: 'Camisa Oficial Flamengo', 
           preco: 260,
@@ -35,7 +35,7 @@ export const catalogo  = [
           feminino: false,
            }, 
           { 
-          id: 5,
+          id: "5",
            marca: 'Rhumel', 
           nome: 'Camisa Oficial do Crisciuma',
            preco: 210, 
@@ -43,7 +43,7 @@ export const catalogo  = [
            feminino: false, 
           },
            { 
-          id: 6, 
+          id: "6", 
           marca: 'Nike',
            nome: 'Shorts',
            preco: 170,
@@ -51,7 +51,7 @@ export const catalogo  = [
            feminino: false,
            },
            {
-           id: 7,
+           id: "7",
            marca: 'Nike',
            nome: 'Boné da Nike',
            preco: 75,
@@ -59,7 +59,7 @@ export const catalogo  = [
            feminino: true,
            }, 
           { 
-          id: 8,
+          id: "8",
            marca: 'Referee',
            nome: 'Apito Referee', 
           preco: 88, 
