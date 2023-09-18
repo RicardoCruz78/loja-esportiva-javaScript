@@ -20,27 +20,35 @@ export function inicializarCarrinho() {
     botaoFecharCarrinho.addEventListener("click",fecharCarrinho);
     botaoAbrirCarrinho.addEventListener("click",abrirCarrinho);
 }
+
+
+
+function removerDoCarrinho (idProduto){
+    delete idsProdutoCarrinhoComQuantidade[idProduto];
+    renderizarProdutosCarrinho();
+
+}
 function incrementarQuantidadeProduto(idProduto){
     idsProdutoCarrinhoComQuantidade[idProduto]++;
     atualizarInformacaoQuantidade(idProduto);
 }
 
 function decrementarQuantidadeProduto(idProduto){
+    if(idsProdutoCarrinhoComQuantidade[idProduto] === 1 ){
+        removerDoCarrinho(idProduto);
+        return;
+    }
     idsProdutoCarrinhoComQuantidade[idProduto]--;
     atualizarInformacaoQuantidade(idProduto);
 }
 
 function atualizarInformacaoQuantidade(idProduto){
+    
     document.getElementById(`quantidade-${idProduto}`).innerText =
     idsProdutoCarrinhoComQuantidade[idProduto];
 }
-export function adicionarAoCarrinho(idProduto){
-        if(idProduto in idsProdutoCarrinhoComQuantidade){
-            incrementarQuantidadeProduto(idProduto);
-            return;
 
-        }
-    idsProdutoCarrinhoComQuantidade[idProduto] =1;
+function desenharProdutoNoCarrinho(idProduto){
     const produto = catalogo.find(p => p.id === idProduto);
     const containerProdutosCarrinho =document.getElementById('produtos-carrinho');
 
@@ -58,7 +66,7 @@ export function adicionarAoCarrinho(idProduto){
 
      }
     
-    const cartaoProdutoCarrinho = `<button id="fechar-carrinho" class="absolute top-0 right-2">
+    const cartaoProdutoCarrinho = `<button id="remover-item-${produto.id}" class="absolute top-0 right-2">
       <i class="fa-solid fa-circle-xmark text-slate-500 hover:text-slate-800"></i></button>
     <img 
     src="./assets/img/${produto.imagem}" alt="Carrinho: ${produto.nome}" class="h-24 rounded-lg"/>
@@ -86,5 +94,30 @@ export function adicionarAoCarrinho(idProduto){
 
    document.getElementById(`incrementar-produto-${produto.id}`)
    .addEventListener("click", () => incrementarQuantidadeProduto(produto.id));
+
+   document.getElementById(`remover-item-${produto.id}`)
+   .addEventListener("click", () => removerDoCarrinho(produto.id));
+}
+
+
+function renderizarProdutosCarrinho(){
+
+    const containerProdutosCarrinho =
+    document.getElementById('produtos-carrinho');
+
+    containerProdutosCarrinho.innerHTML="";
+    
+    for (const idProduto in idsProdutoCarrinhoComQuantidade){
+        desenharProdutoNoCarrinho(idProduto);
+    }
+}
+export function adicionarAoCarrinho(idProduto){
+        if(idProduto in idsProdutoCarrinhoComQuantidade){
+            incrementarQuantidadeProduto(idProduto);
+            return;
+
+        }
+    idsProdutoCarrinhoComQuantidade[idProduto] =1;
+    desenharProdutoNoCarrinho(idProduto);
 }
 
