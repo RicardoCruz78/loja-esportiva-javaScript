@@ -9,14 +9,14 @@ export const catalogo  = [
           marca: 'Nike', 
            preco: 300, 
           imagem: "product-1.jpg",
-           feminino: false,
+           calcado: true,
            },
            { id: "2", 
           marca: 'Topper',
            nome: 'Chuteira Preta',
            preco: 85, 
           imagem: 'product-2.jpg',
-           feminino: true,
+          calcado: true,
            },
            {
            id: "3", 
@@ -24,7 +24,7 @@ export const catalogo  = [
           nome: 'Chuteira Laranja',
            preco: 60, 
           imagem: 'product-3.jpg',
-           feminino: false,
+          calcado: true,
            },
            { 
           id: "4",
@@ -32,7 +32,7 @@ export const catalogo  = [
            nome: 'Camisa Oficial Flamengo', 
           preco: 260,
            imagem: 'product-4.jpg', 
-          feminino: false,
+           calcado: false,
            }, 
           { 
           id: "5",
@@ -40,7 +40,7 @@ export const catalogo  = [
           nome: 'Camisa Oficial do Crisciuma',
            preco: 210, 
           imagem: 'product-5.jpg',
-           feminino: false, 
+          calcado: false, 
           },
            { 
           id: "6", 
@@ -48,7 +48,7 @@ export const catalogo  = [
            nome: 'Shorts',
            preco: 170,
            imagem: 'product-6.jpg',
-           feminino: false,
+           calcado: false,
            },
            {
            id: "7",
@@ -56,7 +56,7 @@ export const catalogo  = [
            nome: 'Boné da Nike',
            preco: 75,
            imagem: 'product-7.jpg',
-           feminino: true,
+           calcado: false,
            }, 
           { 
           id: "8",
@@ -64,6 +64,16 @@ export const catalogo  = [
            nome: 'Apito Referee', 
           preco: 88, 
           imagem: 'product-8.jpg', 
-          feminino: true, 
+          calcado: false, 
           },
           ];
+
+           export function salvarLocalStorage (chave,informacao){
+            localStorage.setItem(chave,JSON.stringify(informacao));
+            
+          }
+
+          export function lerLocalStorage (chave){
+          return JSON.parse(localStorage.getItem(chave));
+            
+          }
