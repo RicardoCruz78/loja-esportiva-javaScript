@@ -9,7 +9,7 @@ import { inicializarFiltros } from "./src/fitrosCatalogos";
 import { inicializarCarrinho,atualizarPrecoCarrinho, renderizarProdutosCarrinho } from "./src/menuCarrinho";
 
 //import { renderizarProdutosCarrinho } from "./src/menuCarrinho";    
-        
+    
 
 
 renderizarCatalogo();
