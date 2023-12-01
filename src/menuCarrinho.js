@@ -144,3 +144,4 @@ export function atualizarPrecoCarrinho(){
         precoCarrinho.innerText =`Total:$${precoTotalCarrinho}`;
         
     }
+    

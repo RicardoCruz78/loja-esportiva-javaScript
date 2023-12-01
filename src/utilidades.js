@@ -77,3 +77,56 @@ export const catalogo  = [
           return JSON.parse(localStorage.getItem(chave));
             
           }
+
+          export function desenharProdutoCarrinhoSimples(
+            idProduto, 
+            idContainerHtml,
+            quantidadeProduto,
+            
+            ){
+            
+            const produto = catalogo.find((p)=> p.id === idProduto);
+
+            
+            const containerProdutosCarrinho =document.getElementById(idContainerHtml);
+            
+            const elementoArticle = document.createElement("artticle");
+            const articleClasses = [
+                "flex",
+               "bg-stone-200",
+               "rounded-lg",
+               "p-1",
+               "relative",
+               "mb-2"
+            ];
+        
+             for (const articleClass of articleClasses) {
+                elementoArticle.classList.add(articleClass);
+        
+             }
+            
+            const cartaoProdutoCarrinho = `
+            <img 
+            src="./assets/img/${produto.imagem}" alt="Carrinho: ${produto.nome}" class="h-24 rounded-lg"/>
+            <div class="p-2 flex flex-col justify-between">   
+            <p class="text-slate-900 text-sm">
+            ${produto.nome}
+            </p>
+            <p class="text-slate-400 text-xs">Número: 39</p>
+            <p class="text-green-700 text-lg">$${produto.preco}</p>
+          </div>
+          <div class='flex text-slate-950 items-end absolute bottom-0 right-2 text-lg'>
+           
+            <p id='quantidade-${produto.id}' class='ml-2'>${quantidadeProduto}</p>
+            
+            
+          </div>`;
+          
+          //article class="flexbg-slate-100 rounded-lg p-1 relative">codigo do cartão produto</article>
+        
+          elementoArticle.innerHTML = cartaoProdutoCarrinho;
+           containerProdutosCarrinho.appendChild(elementoArticle);
+        
+           
+        }
+        
